@@ -1,18 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1766705947
-::res://assets/::1766707894
+::res://::1766835395
+::res://assets/::1766707895
 iy_cantasi.png::CompressedTexture2D/CompressedTexture2D::3710849132185750081::1766451102::1766451102::1::::<><><>0<>0<>d41257d9be170119e6cc98f6607da4a8<>res://.godot/imported/iy_cantasi.png-d7df142a672313a6c5426448ba1897f7.ctex::
-yaralı-adam.png::CompressedTexture2D::400488667128875342::1766707842::1766707895::1::::<><><>0<>0<>18782032997d3543389cc861228d57aa<>res://.godot/imported/yaralı-adam.png-351a9c4ea44b450480e2f53a53aca50a.ctex::
+yaralı-adam.png::CompressedTexture2D/CompressedTexture2D::400488667128875342::1766707842::1766707895::1::::<><><>0<>0<>18782032997d3543389cc861228d57aa<>res://.godot/imported/yaralı-adam.png-351a9c4ea44b450480e2f53a53aca50a.ctex::
 yarali_adam.png::CompressedTexture2D/CompressedTexture2D::4547614675868430125::1766451102::1766451102::1::::<><><>0<>0<>8dfa44689b6925e8fba4282b38d78fa4<>res://.godot/imported/yarali_adam.png-8a2ad8413123324b713faa9ea3145c3f.ctex::
 ::res://assets/bg/::1766450197
 metro station.jpg::CompressedTexture2D/CompressedTexture2D::7555475895395427852::1766450195::1766450197::1::::<><><>0<>0<>75d3cd7cfa3a75579cbbed91bb80e4fd<>res://.godot/imported/metro station.jpg-9123887020a537a63286e43ae67daf33.ctex::
-::res://scenes/::1766707480
-main.tscn::PackedScene::4516010881190197393::1766707480::0::1::::<><><>0<>0<><>::uid://2v06a3t1j5y8::::res://scripts/Main.gd<>uid://dfv6t4itx4n2k::::res://assets/bg/metro station.jpg<>res://scenes/UI.tscn<>uid://b515sw8s888pt::::res://assets/yarali_adam.png<>uid://bs4te4mir4b3n::::res://assets/iy_cantasi.png
-Treatment.tscn::PackedScene::-1::1766707442::0::1::::<><><>0<>0<><>::
+::res://scenes/::1766707981
+main.tscn::PackedScene::4516010881190197393::1766707981::0::1::::<><><>0<>0<><>::uid://2v06a3t1j5y8::::res://scripts/Main.gd<>uid://dfv6t4itx4n2k::::res://assets/bg/metro station.jpg<>res://scenes/UI.tscn<>uid://fx88wiq186x3::::res://assets/yaralı-adam.png<>uid://bs4te4mir4b3n::::res://assets/iy_cantasi.png
+Treatment.tscn::PackedScene::-1::1766708104::0::1::::<><><>0<>0<><>::res://scripts/TreatmentManager.gd<>res://scripts/DraggableItem.gd<>res://assets/bg/metro station.jpg
 UI.tscn::PackedScene/PackedScene::-1::1766707369::0::1::::<><><>0<>0<><>::
 ::res://scripts/::1766707442
-DraggableItem.gd::GDScript::449763860982476791::1766707406::0::1::::<>Area2D<><>0<>0<><>::
+DraggableItem.gd::GDScript/GDScript::449763860982476791::1766707406::0::1::::<>Area2D<><>0<>0<><>::
 GameManager.gd::GDScript/GDScript::8662984774563050742::1766449872::0::1::::<>Node<><>0<>0<><>::
-Main.gd::GDScript::1940024039645273745::1766707396::0::1::::<>Node2D<><>0<>0<><>::
-TreatmentManager.gd::GDScript::4430764110304705554::1766707418::0::1::::<>Node2D<><>0<>0<><>::
+Main.gd::GDScript::1940024039645273745::1766708138::0::1::::<>Node2D<><>0<>0<><>::
+TreatmentManager.gd::GDScript/GDScript::4430764110304705554::1766707418::0::1::::<>Node2D<><>0<>0<><>::
 UIManager.gd::GDScript::9186609692900918064::1766707424::0::1::::<>Control<><>0<>0<><>::
