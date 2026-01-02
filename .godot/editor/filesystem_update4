@@ -5,3 +5,4 @@ res://scripts/DraggableItem.gd
 res://scripts/TreatmentManager.gd
 res://scenes/MainMenu.tscn
 res://scripts/MainMenu.gd
+res://scripts/Main.gd

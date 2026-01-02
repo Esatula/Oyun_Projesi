@@ -15,41 +15,72 @@ var current_step_index = 0
 @onready var instruction_label = $CanvasLayer/InstructionLabel
 @onready var drop_zone = $DropZone
 @onready var items_container = $ItemsContainer
+@onready var dialogue_ui = $CanvasLayer/UI
 
 func _ready():
-	# Initialize items with names if not already set (assuming setup() is called or properties set in inspector)
-	# For this implementation key names are derived from node names or manually set.
-	# We rely on node names being mapped or checked against sequence.
-	update_instruction()
-	# Connect signals for all draggable items
-	for item in items_container.get_children():
-		# Setup tooltips/names if they are just generic nodes
-		if item.name.to_lower() == "gel":
-			item.setup("Temizleme Jeli", item.get_node("Sprite2D").texture)
-		elif item.name.to_lower() == "cream":
-			item.setup("Yanık Kremi", item.get_node("Sprite2D").texture)
-		elif item.name.to_lower() == "bandage":
-			item.setup("Sargı Bezi", item.get_node("Sprite2D").texture)
+	# Initial Setup
+	for child in items_container.get_children():
+		if child.has_method("setup"):
+			# Set up specific textures? Or just names?
+			# Current DraggableItem setup might use sprite visible in editor
+			child.initial_position = child.position
+			child.item_name = child.name
 			
-		if item.has_signal("item_dropped"):
-			item.connect("item_dropped", _on_item_dropped.bind(item))
+			# Connect signal
+			if !child.is_connected("item_dropped", _on_item_dropped):
+				child.connect("item_dropped", _on_item_dropped.bind(child))
+				
+	update_instruction()
+	
+	# Initial Visual
+	# injured_person.texture = tex_cleaned # Start dirty/burnt actually? 
+	# User provided adam_jelli (cleaned), adam_kremli (creamed), adam_bandajli (bandaged).
+	# Before any treatment, we probably want the base 'yarali_adam.png' which is set in editor.
+	# So no change here.
 
 func update_instruction():
 	if current_step_index >= sequence.size():
-		instruction_label.text = "Tedavi Tamamlandı!"
-		instruction_label.modulate = Color(0, 1, 0) # Green
-		# Here you could show a 'Finish Level' button or effect
+		instruction_label.visible = false
+		run_outro_sequence()
 		return
 		
 	var next_hint = ""
 	var current_id = sequence[current_step_index]
 	
 	match current_id:
-		"gel": next_hint = "Yaranın enfeksiyon kapmaması için önce temizlenmesi gerek."
-		"cream": next_hint = "Yara temizlendi. Şimdi acıyı dindirmek ve iyileşmeyi hızlandırmak lazım."
-		"bandage": next_hint = "Krem sürüldü. Şimdi dış etkenlerden korumak için kapatılması gerek."
+		"gel": next_hint = "Adım 1: Temizleme. \nEnfeksiyonu önlemek için yara çevresindeki bakterileri yok etmeliyiz. Antiseptik solüsyon veya jel kullanmalıyız."
+		"cream": next_hint = "Adım 2: İyileştirme. \nDeri dokusunun yenilenmesini hızlandırmak ve acıyı azaltmak için yanık kremi uygulamalıyız."
+		"bandage": next_hint = "Adım 3: Koruma. \nYaranın dış etkenlerle temasını kesmek ve steril kalması için sargı bezi ile kapatmalıyız."
 	
 	instruction_label.text = next_hint
+
+func run_outro_sequence():
+	# Hide gameplay elements
+	items_container.visible = false
+	drop_zone.monitoring = false
+	
+	# Dialogue 1: Injured Person
+	dialogue_ui.show_dialogue("Yaralı: \"Çok teşekkür ederim! Elimi kurtardın, acım dindi.\"")
+	await dialogue_ui.dialogue_advanced
+	AudioManager.play_click()
+	
+	# Dialogue 2: Doctor (Player)
+	dialogue_ui.show_dialogue("Ben: \"Rica ederim. Ben sadece görevimi yaptım. Sakin olmanız önemliydi.\"")
+	await dialogue_ui.dialogue_advanced
+	AudioManager.play_click()
+	
+	# Dialogue 3: Injured Person
+	dialogue_ui.show_dialogue("Yaralı: \"Sen gerçekten harika bir doktor olacaksın. Bu soğukkanlılığını hiç kaybetme.\"")
+	await dialogue_ui.dialogue_advanced
+	AudioManager.play_click()
+	
+	# Demo End
+	dialogue_ui.show_dialogue("[DEMO SONU] Oynadığınız için teşekkürler!")
+	await dialogue_ui.dialogue_advanced
+	AudioManager.play_click()
+	
+	# Return to Menu
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 func _on_item_dropped(item_name: String, drop_pos: Vector2, item_node):
 	# check if dropped inside DropZone

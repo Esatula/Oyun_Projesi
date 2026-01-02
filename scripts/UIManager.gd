@@ -9,11 +9,16 @@ extends Control
 
 signal option_chosen(id)
 signal try_again
+signal dialogue_advanced
 
 func _ready():
 	options_container.visible = false
 	feedback_panel.visible = false
 	try_again_btn.connect("pressed", _on_try_again_pressed)
+	
+	# Enable input on DialoguePanel
+	dialogue_box.mouse_filter = Control.MOUSE_FILTER_STOP
+	dialogue_box.gui_input.connect(_on_dialogue_panel_gui_input)
 	
 	# Apply Theme Colors
 	# Main BG: #3FD6D6, Secondary/Border: #E53935
@@ -30,6 +35,10 @@ func _ready():
 	btn_style.bg_color = Color("#E53935")
 	btn_style.set_corner_radius_all(5)
 	try_again_btn.add_theme_stylebox_override("normal", btn_style)
+
+func _on_dialogue_panel_gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		emit_signal("dialogue_advanced")
 
 func show_dialogue(text: String):
 	dialogue_label.text = text
