@@ -12,6 +12,7 @@ signal try_again
 signal dialogue_advanced
 
 func _ready():
+	dialogue_box.visible = false
 	options_container.visible = false
 	feedback_panel.visible = false
 	try_again_btn.connect("pressed", _on_try_again_pressed)

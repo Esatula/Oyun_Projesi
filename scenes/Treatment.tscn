@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0cdpprosuos2"]
+[gd_scene load_steps=14 format=3 uid="uid://d0cdpprosuos2"]
 
 [ext_resource type="Script" uid="uid://b4ekbjoa0a5pm" path="res://scripts/TreatmentManager.gd" id="1_tm"]
 [ext_resource type="Texture2D" uid="uid://btvw3tqoh23rd" path="res://assets/adam_jelli.png" id="2_48t0y"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cdrpnkacvkuxm" path="res://assets/jel.png" id="5_af2go"]
 [ext_resource type="Texture2D" uid="uid://c4a0qhs7247jm" path="res://assets/merhem.png" id="6_eth5q"]
 [ext_resource type="Texture2D" uid="uid://6ohj4c7kirpo" path="res://assets/bandaj.png" id="7_48t0y"]
+[ext_resource type="PackedScene" path="res://scenes/UI.tscn" id="8_ui"]
 
 [sub_resource type="RectangleShape2D" id="Rect_Drop"]
 size = Vector2(400, 400)
@@ -79,7 +80,7 @@ shape = SubResource("Rect_Item")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("res://scenes/UI.tscn")]
+[node name="UI" parent="CanvasLayer" instance=ExtResource("8_ui")]
 
 [node name="InstructionLabel" type="Label" parent="CanvasLayer"]
 offset_left = 65.0

@@ -128,9 +128,8 @@ func _on_option_selected(option_id):
 		"cool_cover":
 			dialogue_ui.show_dialogue("Harika! Yanığı temiz suyla soğutmak acıyı alır. Ardından enfeksiyonu önlemek için kapatmalıyız.")
 			
-			# Wait for user to read before changing scene
-			await dialogue_ui.dialogue_advanced
-			AudioManager.play_click()
+			# Revert to timer based transition
+			await get_tree().create_timer(3.0).timeout
 			
 			get_tree().change_scene_to_file("res://scenes/Treatment.tscn")
 			

@@ -20,15 +20,19 @@ var current_step_index = 0
 func _ready():
 	# Initial Setup
 	for child in items_container.get_children():
-		if child.has_method("setup"):
-			# Set up specific textures? Or just names?
-			# Current DraggableItem setup might use sprite visible in editor
-			child.initial_position = child.position
-			child.item_name = child.name
+		# Setup tooltips/names
+		if child.name.to_lower() == "gel":
+			child.setup("Temizleme Jeli", child.get_node("Sprite2D").texture)
+		elif child.name.to_lower() == "cream":
+			child.setup("Yanık Kremi", child.get_node("Sprite2D").texture)
+		elif child.name.to_lower() == "bandage":
+			child.setup("Sargı Bezi", child.get_node("Sprite2D").texture)
 			
-			# Connect signal
-			if !child.is_connected("item_dropped", _on_item_dropped):
-				child.connect("item_dropped", _on_item_dropped.bind(child))
+		child.initial_position = child.position
+		
+		# Connect signal
+		if !child.is_connected("item_dropped", _on_item_dropped):
+			child.connect("item_dropped", _on_item_dropped.bind(child))
 				
 	update_instruction()
 	
@@ -60,7 +64,7 @@ func run_outro_sequence():
 	drop_zone.monitoring = false
 	
 	# Dialogue 1: Injured Person
-	dialogue_ui.show_dialogue("Yaralı: \"Çok teşekkür ederim! Elimi kurtardın, acım dindi.\"")
+	dialogue_ui.show_dialogue("Yaralı: \"Çok teşekkür ederim! Elim daha iyi hissediyor, acım dindi.\"")
 	await dialogue_ui.dialogue_advanced
 	AudioManager.play_click()
 	
