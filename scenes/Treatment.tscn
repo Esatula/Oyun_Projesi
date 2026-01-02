@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0cdpprosuos2"]
+
+[ext_resource type="Script" uid="uid://b4ekbjoa0a5pm" path="res://scripts/TreatmentManager.gd" id="1_tm"]
+[ext_resource type="Texture2D" uid="uid://btvw3tqoh23rd" path="res://assets/adam_jelli.png" id="2_48t0y"]
+[ext_resource type="Texture2D" uid="uid://dfv6t4itx4n2k" path="res://assets/bg/metro station.jpg" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://bb143jbi5r8bs" path="res://assets/adam_kremli.png" id="3_aeroh"]
+[ext_resource type="Texture2D" uid="uid://fx88wiq186x3" path="res://assets/yaralı-adam.png" id="3_l32pt"]
+[ext_resource type="Script" uid="uid://gn4ssd11fkd8" path="res://scripts/DraggableItem.gd" id="4_item"]
+[ext_resource type="Texture2D" uid="uid://828quhw6ig5u" path="res://assets/adam_bandajlı.png" id="4_y8ubt"]
+[ext_resource type="Texture2D" uid="uid://cdrpnkacvkuxm" path="res://assets/jel.png" id="5_af2go"]
+[ext_resource type="Texture2D" uid="uid://c4a0qhs7247jm" path="res://assets/merhem.png" id="6_eth5q"]
+[ext_resource type="Texture2D" uid="uid://6ohj4c7kirpo" path="res://assets/bandaj.png" id="7_48t0y"]
+
+[sub_resource type="RectangleShape2D" id="Rect_Drop"]
+size = Vector2(400, 400)
+
+[sub_resource type="RectangleShape2D" id="Rect_Item"]
+size = Vector2(100, 100)
+
+[node name="Treatment" type="Node2D"]
+script = ExtResource("1_tm")
+tex_cleaned = ExtResource("2_48t0y")
+tex_creamed = ExtResource("3_aeroh")
+tex_bandaged = ExtResource("4_y8ubt")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_bg")
+expand_mode = 1
+
+[node name="InjuredPerson" type="Sprite2D" parent="."]
+position = Vector2(586, 443)
+texture = ExtResource("3_l32pt")
+
+[node name="DropZone" type="Area2D" parent="."]
+position = Vector2(640, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone"]
+position = Vector2(-53, 38)
+shape = SubResource("Rect_Drop")
+
+[node name="ItemsContainer" type="Node2D" parent="."]
+
+[node name="Gel" type="Area2D" parent="ItemsContainer"]
+position = Vector2(1100, 200)
+script = ExtResource("4_item")
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemsContainer/Gel"]
+modulate = Color(0.2, 0.8, 1, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_af2go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemsContainer/Gel"]
+shape = SubResource("Rect_Item")
+
+[node name="Cream" type="Area2D" parent="ItemsContainer"]
+position = Vector2(1100, 350)
+script = ExtResource("4_item")
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemsContainer/Cream"]
+modulate = Color(1, 1, 0.8, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_eth5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemsContainer/Cream"]
+shape = SubResource("Rect_Item")
+
+[node name="Bandage" type="Area2D" parent="ItemsContainer"]
+position = Vector2(1100, 500)
+script = ExtResource("4_item")
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemsContainer/Bandage"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_48t0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemsContainer/Bandage"]
+shape = SubResource("Rect_Item")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InstructionLabel" type="Label" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 50.0
+offset_right = 1200.0
+offset_bottom = 120.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "Yükleniyor..."
+horizontal_alignment = 1

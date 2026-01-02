@@ -1,2 +1,5 @@
-res://scenes/main.tscn
+res://scenes/Treatment.tscn
 res://scripts/UIManager.gd
+res://scenes/main.tscn
+res://scripts/DraggableItem.gd
+res://scripts/TreatmentManager.gd
