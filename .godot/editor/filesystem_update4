@@ -3,3 +3,5 @@ res://scripts/UIManager.gd
 res://scenes/main.tscn
 res://scripts/DraggableItem.gd
 res://scripts/TreatmentManager.gd
+res://scenes/MainMenu.tscn
+res://scripts/MainMenu.gd

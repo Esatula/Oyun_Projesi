@@ -69,14 +69,20 @@ func _on_item_dropped(item_name: String, drop_pos: Vector2, item_node):
 			current_step_index += 1
 			item_node.visible = false # Hide used item
 			
+			# Audio Feedback
+			match dropped_id:
+				"gel": AudioManager.play_gel()
+				"cream": AudioManager.play_cream()
+				"bandage": AudioManager.play_bandage()
+			
 			# Visual Progression
 			update_visuals(dropped_id)
 			
-			# Play sound effect here
 			update_instruction()
 		else:
 			# Wrong item
 			print("Wrong item! Needed: " + needed_id)
+			# AudioManager.play_failure() # If we had one
 			status_feedback("Yanlış! Önce diğer malzemeyi kullanmalısın.")
 			item_node.return_to_start()
 	else:

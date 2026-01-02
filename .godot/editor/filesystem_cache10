@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
 ::res://::1767337405
 Yeni Metin Belgesi.txt::TextFile::-1::1766838769::0::1::::<><><>0<>0<><>::
-::res://assets/::1767340440
+::res://assets/::1767343309
 adam_bandajlı.png::CompressedTexture2D::2374003335200416216::1767340440::1767340440::1::::<><><>0<>0<>bf779f767048f55665068e1720b1f077<>res://.godot/imported/adam_bandajlı.png-43a7f65015c1f215c52ef9661c84abc5.ctex::
 adam_jelli.png::CompressedTexture2D::3764747445028238781::1767340440::1767340440::1::::<><><>0<>0<>0884c744d3a8ce16cdf4ad31629adb79<>res://.godot/imported/adam_jelli.png-b0eb0288e153409f299c40fb98261226.ctex::
 adam_kremli.png::CompressedTexture2D::2512094618615487712::1767340440::1767340440::1::::<><><>0<>0<>a900e2b51e0ab0c58dff038edb223507<>res://.godot/imported/adam_kremli.png-5799517db9aac4d34679e667554d0e72.ctex::
@@ -11,15 +11,24 @@ jel.png::CompressedTexture2D::5019436815684428362::1767338220::1767338220::1::::
 merhem.png::CompressedTexture2D::6809864727371903446::1767338220::1767338220::1::::<><><>0<>0<>87271b112023382ade35d966235c43b6<>res://.godot/imported/merhem.png-d64a3e35f87997669f2b322b583e7978.ctex::
 yaralı-adam.png::CompressedTexture2D/CompressedTexture2D::400488667128875342::1766707842::1766707895::1::::<><><>0<>0<>18782032997d3543389cc861228d57aa<>res://.godot/imported/yaralı-adam.png-351a9c4ea44b450480e2f53a53aca50a.ctex::
 yarali_adam.png::CompressedTexture2D/CompressedTexture2D::4547614675868430125::1766451102::1766451102::1::::<><><>0<>0<>8dfa44689b6925e8fba4282b38d78fa4<>res://.godot/imported/yarali_adam.png-8a2ad8413123324b713faa9ea3145c3f.ctex::
-::res://assets/bg/::1766450197
+::res://assets/bg/::1767343322
+menu6.png::CompressedTexture2D::7460582929190964169::1767342221::1767343332::1::::<><><>0<>0<>5e729bc755711acbd5d0d066bcbf86d2<>res://.godot/imported/menu6.png-247b57ea7cf12df9370a982e02169ad1.ctex::
 metro station.jpg::CompressedTexture2D/CompressedTexture2D::7555475895395427852::1766450195::1766450197::1::::<><><>0<>0<>75d3cd7cfa3a75579cbbed91bb80e4fd<>res://.godot/imported/metro station.jpg-9123887020a537a63286e43ae67daf33.ctex::
-::res://scenes/::1767338285
-main.tscn::PackedScene::4516010881190197393::1767338285::0::1::::<><><>0<>0<><>::uid://2v06a3t1j5y8::::res://scripts/Main.gd<>uid://dfv6t4itx4n2k::::res://assets/bg/metro station.jpg<>res://scenes/UI.tscn<>uid://fx88wiq186x3::::res://assets/yaralı-adam.png<>uid://bs4te4mir4b3n::::res://assets/iy_cantasi.png
-Treatment.tscn::PackedScene::8918321650197985271::1767338285::0::1::::<><><>0<>0<><>::uid://b4ekbjoa0a5pm::::res://scripts/TreatmentManager.gd<>uid://dfv6t4itx4n2k::::res://assets/bg/metro station.jpg<>uid://fx88wiq186x3::::res://assets/yaralı-adam.png<>uid://gn4ssd11fkd8::::res://scripts/DraggableItem.gd<>uid://cdrpnkacvkuxm::::res://assets/jel.png<>uid://c4a0qhs7247jm::::res://assets/merhem.png<>uid://6ohj4c7kirpo::::res://assets/bandaj.png
+::res://assets/sounds/::1767343316
+bandaj1.mp3::AudioStreamMP3::8463208061457705980::1767342622::1767343332::1::::<><><>0<>0<>2da987a3aa9a03767175d7dc07f5cf2b<>res://.godot/imported/bandaj1.mp3-c7c7ef4a547209bcb8f845e759a63015.mp3str::
+bandaj2.mp3::AudioStreamMP3::917634186074322499::1767342871::1767343332::1::::<><><>0<>0<>32d0bf93aa58114825b12bd8cf29fd15<>res://.godot/imported/bandaj2.mp3-689912b301cc5962da30d10fef72e7c0.mp3str::
+jel.mp3::AudioStreamMP3::7407851699712217066::1767342773::1767343332::1::::<><><>0<>0<>055056112f72f9bb83ac9533acb687fa<>res://.godot/imported/jel.mp3-04b3e23e9022420df2d03639a8de422a.mp3str::
+krem1.mp3::AudioStreamMP3::1711073354452793430::1767342773::1767343332::1::::<><><>0<>0<>c4dee9fdbec9125a951fcaaf406575cc<>res://.godot/imported/krem1.mp3-5c96b5adba5c4ca6e918a0f266e9ba3f.mp3str::
+tıklama.mp3::AudioStreamMP3::3203424629077780914::1767342913::1767343332::1::::<><><>0<>0<>610ce285e543d2a2bd965bee47c5ebc7<>res://.godot/imported/tıklama.mp3-5545cff64dee1aad6c1fc9bc1846a48c.mp3str::
+::res://scenes/::1767343227
+main.tscn::PackedScene::4516010881190197393::1767343227::0::1::::<><><>0<>0<><>::uid://2v06a3t1j5y8::::res://scripts/Main.gd<>uid://dfv6t4itx4n2k::::res://assets/bg/metro station.jpg<>res://scenes/UI.tscn<>uid://fx88wiq186x3::::res://assets/yaralı-adam.png<>uid://bs4te4mir4b3n::::res://assets/iy_cantasi.png
+MainMenu.tscn::PackedScene::6912085660731920292::1767343227::0::1::::<><><>0<>0<><>::uid://dfv6t4itx4n2k::::res://assets/bg/metro station.jpg<>uid://bl5vthdgfjvl8::::res://scripts/MainMenu.gd
+Treatment.tscn::PackedScene::8918321650197985271::1767343227::0::1::::<><><>0<>0<><>::uid://b4ekbjoa0a5pm::::res://scripts/TreatmentManager.gd<>uid://btvw3tqoh23rd::::res://assets/adam_jelli.png<>uid://dfv6t4itx4n2k::::res://assets/bg/metro station.jpg<>uid://bb143jbi5r8bs::::res://assets/adam_kremli.png<>uid://fx88wiq186x3::::res://assets/yaralı-adam.png<>uid://gn4ssd11fkd8::::res://scripts/DraggableItem.gd<>uid://828quhw6ig5u::::res://assets/adam_bandajlı.png<>uid://cdrpnkacvkuxm::::res://assets/jel.png<>uid://c4a0qhs7247jm::::res://assets/merhem.png<>uid://6ohj4c7kirpo::::res://assets/bandaj.png
 UI.tscn::PackedScene/PackedScene::-1::1766707369::0::1::::<><><>0<>0<><>::
-::res://scripts/::1767338279
+::res://scripts/::1767341626
 DraggableItem.gd::GDScript::449763860982476791::1767340283::0::1::::<>Area2D<><>0<>0<><>::
 GameManager.gd::GDScript/GDScript::8662984774563050742::1766449872::0::1::::<>Node<><>0<>0<><>::
 Main.gd::GDScript/GDScript::1940024039645273745::1766708138::0::1::::<>Node2D<><>0<>0<><>::
+MainMenu.gd::GDScript::3221738655843076227::1767341215::0::1::::<>Control<><>0<>0<><>::
 TreatmentManager.gd::GDScript::4430764110304705554::1767340317::0::1::::<>Node2D<><>0<>0<><>::
-UIManager.gd::GDScript::9186609692900918064::1767338279::0::1::::<>Control<><>0<>0<><>::
+UIManager.gd::GDScript::9186609692900918064::1767341626::0::1::::<>Control<><>0<>0<><>::

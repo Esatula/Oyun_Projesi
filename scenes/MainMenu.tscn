@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3m7x8wab0n1a"]
+[gd_scene load_steps=3 format=3 uid="uid://c5qjbnmbshpk3"]
 
-[ext_resource type="Texture2D" uid="uid://dfv6t4itx4n2k" path="res://assets/bg/metro station.jpg" id="1_bg"]
-[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://dej7yfy2x5sjp" path="res://assets/bg/menu6.png" id="2_0ykhv"]
+[ext_resource type="Script" uid="uid://bl5vthdgfjvl8" path="res://scripts/MainMenu.gd" id="2_script"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,24 +19,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_bg")
+texture = ExtResource("2_0ykhv")
 expand_mode = 1
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -250.0
-offset_top = 100.0
-offset_right = 250.0
-offset_bottom = 170.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 64
-text = "İlk Yardım Eğitimi"
-horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -45,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -100.0
-offset_right = 150.0
-offset_bottom = 100.0
+offset_left = -147.0
+offset_top = 48.0
+offset_right = 153.0
+offset_bottom = 267.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -59,11 +43,63 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Oyuna Başla"
 
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Ayarlar"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Çıkış"
 
+[node name="OptionsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Ses Seviyesi"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="CloseButton" type="Button" parent="OptionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Kapat"
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionsPanel/VBoxContainer/CloseButton" to="." method="_on_close_options_pressed"]

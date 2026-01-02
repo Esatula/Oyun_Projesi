@@ -15,13 +15,21 @@ func _ready():
 	feedback_panel.visible = false
 	try_again_btn.connect("pressed", _on_try_again_pressed)
 	
-	# Apply Blue Theme to Dialogue Box
+	# Apply Theme Colors
+	# Main BG: #3FD6D6, Secondary/Border: #E53935
 	var style = StyleBoxFlat.new()
-	style.bg_color = Color(0.0, 0.1, 0.4, 0.85) # Dark Blue
-	style.border_color = Color(0.3, 0.6, 1.0) # Light blue border
-	style.set_border_width_all(2)
+	style.bg_color = Color("#3FD6D6") # Cyan
+	style.bg_color.a = 0.9 # Slight transparency
+	style.border_color = Color("#E53935") # Red Border
+	style.set_border_width_all(3)
 	style.set_corner_radius_all(10)
 	dialogue_box.add_theme_stylebox_override("panel", style)
+	
+	# Try Again Button Style (Standardize)
+	var btn_style = StyleBoxFlat.new()
+	btn_style.bg_color = Color("#E53935")
+	btn_style.set_corner_radius_all(5)
+	try_again_btn.add_theme_stylebox_override("normal", btn_style)
 
 func show_dialogue(text: String):
 	dialogue_label.text = text
@@ -45,14 +53,21 @@ func show_options(options: Array):
 		# Minimum size for horizontal layout
 		btn.custom_minimum_size = Vector2(250, 180)
 		
-		# Blue Theme for Buttons
+		# Theme for Buttons
 		var btn_style = StyleBoxFlat.new()
-		btn_style.bg_color = Color(0.0, 0.2, 0.6, 1.0) # slightly lighter blue
-		btn_style.border_color = Color(1, 1, 1, 1)
-		btn_style.set_border_width_all(2)
+		btn_style.bg_color = Color("#3FD6D6") # Cyan
+		btn_style.border_color = Color("#E53935") # Red Border
+		btn_style.set_border_width_all(3)
 		btn_style.set_corner_radius_all(8)
+		
+		# Hover style
+		var hover_style = btn_style.duplicate()
+		hover_style.bg_color = Color("#E53935") # Red on hover? Or lighter Cyan?
+		# Let's try lighter cyan for hover logic or keep simple for now. 
+		# User asked for specific colors but not hover behaviors.
+		
 		btn.add_theme_stylebox_override("normal", btn_style)
-		btn.add_theme_color_override("font_color", Color.WHITE)
+		btn.add_theme_color_override("font_color", Color.BLACK) # Black text on Cyan
 		
 		# If image is provided in option dict, set it
 		if opt.has("icon_path"):
@@ -73,11 +88,11 @@ func show_feedback(text: String):
 	dialogue_box.visible = false
 	feedback_panel.visible = true
 	
-	# Blue Theme for Feedback Panel
+	# Theme for Feedback Panel
 	var fb_style = StyleBoxFlat.new()
-	fb_style.bg_color = Color(0.0, 0.1, 0.4, 0.9)
-	fb_style.border_color = Color(1, 0, 0) # Red border for alert/feedback
-	fb_style.set_border_width_all(3)
+	fb_style.bg_color = Color("#3FD6D6")
+	fb_style.border_color = Color("#E53935") # Red border
+	fb_style.set_border_width_all(4)
 	fb_style.set_corner_radius_all(10)
 	feedback_panel.add_theme_stylebox_override("panel", fb_style)
 	
@@ -88,6 +103,7 @@ func hide_feedback():
 	dialogue_box.visible = true
 
 func _on_button_pressed(id):
+	AudioManager.play_click()
 	options_container.visible = false
 	# Dialogue box will stay hidden until next show_dialogue call or manual reset
 	emit_signal("option_chosen", id)
@@ -96,6 +112,7 @@ func _on_button_pressed(id):
 		get_parent().get_parent()._on_option_selected(id)
 
 func _on_try_again_pressed():
+	AudioManager.play_click()
 	hide_feedback()
 	emit_signal("try_again")
 	if get_parent().get_parent().has_method("_on_try_again"):
